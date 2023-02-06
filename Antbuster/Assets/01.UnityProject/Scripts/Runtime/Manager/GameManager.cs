@@ -1,27 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class GameManager : GSingletone<GameManager>
+public class GameManager : MonoBehaviour
 {
-    public Dictionary<string, GameObject> gameObjs = default;
+    public TMP_Text startTimer = default;
 
-    public override void Awake()
+    private float time = default;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        base.Awake();
+        GData.isGameStart = false;
 
-        //  여시거 싱글턴 인스턴스 생성
-        Creat();
+        StartCoroutine(Timer());
 
-        gameObjs = new Dictionary<string, GameObject>();
     }
 
-    protected override void Init()
+    // Update is called once per frame
+    void Update()
     {
-        base.Init();
 
-        //  여기서 게임 매니저가 초기화 된다.
-        gameObjs = new Dictionary<string, GameObject>();
-    }   //  Init()
+    }
 
+    public IEnumerator Timer()
+    {
+        time = 10f;
+
+        while (time > 0)
+        {
+            time -= 1;
+            startTimer.text = time.ToString("0");
+            yield return new WaitForSeconds(1f);
+
+            if (time == 0)
+            {
+                GData.isGameStart = true;
+            }
+        }
+
+    }
 }
