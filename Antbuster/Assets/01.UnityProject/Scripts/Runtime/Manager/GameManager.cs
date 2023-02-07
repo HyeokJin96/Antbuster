@@ -13,9 +13,9 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         GData.isGameStart = false;
+        startTimer.gameObject.SetActive(true);
 
         StartCoroutine(Timer());
-
     }
 
     // Update is called once per frame
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
 
             if (time == 0)
             {
+                startTimer.gameObject.SetActive(false);
                 GData.isGameStart = true;
             }
         }
