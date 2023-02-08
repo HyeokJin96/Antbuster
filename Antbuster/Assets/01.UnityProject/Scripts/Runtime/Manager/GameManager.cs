@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public TMP_Text startTimer = default;
 
+
     private float time = default;
 
     // Start is called before the first frame update
