@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private GameObject enemyPrefab;
+    private GameObject antPrefab;
     [SerializeField]
     private float spawnTime;
     [SerializeField]
@@ -13,15 +13,15 @@ public class EnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine("SpawnEnemy");
+        StartCoroutine(SpawnEnemy());
     }
 
     private IEnumerator SpawnEnemy()
     {
         while (true)
         {
-            GameObject clone = Instantiate(enemyPrefab);
-            Enemy enemy = clone.GetComponent<Enemy>();
+            GameObject ant = Instantiate(antPrefab);
+            Enemy enemy = ant.GetComponent<Enemy>();
 
             enemy.Setup(wayPoints);
 

@@ -26,6 +26,8 @@ public class Enemy : MonoBehaviour
     }
 
     private IEnumerator OnMove()
+
+
     {
         //  다음 이동 방향 설정
         NextMoveTo();

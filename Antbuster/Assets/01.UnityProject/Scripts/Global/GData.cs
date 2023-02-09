@@ -9,4 +9,15 @@ public static partial class GData
 
     public static bool isGameStart = default;
     public static bool isPlay = default;
+    public static bool isGameOver = default;
+    public static bool isAttacked = default;
+
+    public static string CANON_NAME = "Canon";
+
+    public static string ENEMY = "Ant";
+    public static int ENEMY_HP = default;
+
+    public static int points = default;
+    public static int money = default;
+    public static int level = default;
 }

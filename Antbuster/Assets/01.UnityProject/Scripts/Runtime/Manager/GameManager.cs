@@ -13,7 +13,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GData.points = 0;
+        GData.money = 300;
+        GData.level = 0;
+
         GData.isGameStart = false;
+        GData.isGameOver = false;
         startTimer.gameObject.SetActive(true);
 
         StartCoroutine(Timer());
@@ -24,7 +29,7 @@ public class GameManager : MonoBehaviour
     {
 
     }
-
+     
     public IEnumerator Timer()
     {
         time = 10f;
